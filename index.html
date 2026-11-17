@@ -295,15 +295,110 @@ footer {
     </div>
   </div>
 
-  <div class="section-title" id="planner">
-    Post Planner
-  </div>
-  <div class="panel">
-    <p style="font-size:13px;color:#788981">
-      พื้นที่สำหรับพัฒนาระบบจัดตารางโพสต์
-      (ขั้นตอนถัดไป)
-    </p>
-  </div>
+
+<div class="section-title" id="planner">
+  Post Planner
+</div>
+
+<div class="panel">
+  <h3>เพิ่มรายการงาน</h3>
+
+  <form id="plannerForm">
+    <label>ชื่องาน</label>
+    <input id="taskTitle" required
+      placeholder="เช่น โปรโมตร้านประจำวัน">
+
+    <label>กลุ่มเป้าหมาย / ช่องทาง</label>
+    <input id="taskGroup" required
+      placeholder="เช่น กลุ่มซื้อขายในพื้นที่">
+
+    <label>วันที่</label>
+    <input type="date" id="taskDate" required>
+
+    <label>เวลา</label>
+    <input type="time" id="taskTime" required>
+
+    <button type="submit">+ เพิ่มรายการ</button>
+  </form>
+
+  <h3 style="margin-top:20px">
+    รายการงานทั้งหมด
+  </h3>
+
+  <p>จำนวนรายการ: <b id="plannerTotal">0</b></p>
+
+  <div id="plannerList"></div>
+</div>
+
+<style>
+#plannerForm {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#plannerForm label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#plannerForm input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce5df;
+  border-radius: 9px;
+  font-size: 14px;
+  background: white;
+  color: #1d302b;
+}
+
+#plannerForm button {
+  margin-top: 8px;
+}
+
+.planner-item {
+  padding: 14px;
+  margin-top: 12px;
+  background: #f3f7f4;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.planner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.planner-actions button {
+  font-size: 11px;
+  padding: 9px;
+}
+</style>
+
+<script src="planner.js"></script>
+
+<script>
+document.getElementById("plannerForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    addTask({
+      title: document.getElementById("taskTitle").value.trim(),
+      group: document.getElementById("taskGroup").value.trim(),
+      date: document.getElementById("taskDate").value,
+      time: document.getElementById("taskTime").value
+    });
+
+    this.reset();
+    renderPlanner();
+    alert("บันทึกรายการเรียบร้อยแล้ว");
+  });
+</script>
+
 
   <div class="section-title" id="groups">
     Group Manager

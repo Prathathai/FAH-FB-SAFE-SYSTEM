@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b27">
+<title>FAH FB SAFE SYSTEM</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #f3f6f4;
+  color: #1d302b;
+}
+
+header {
+  background: #102b27;
+  color: white;
+  padding: 25px 20px 30px;
+  border-radius: 0 0 24px 24px;
+}
+
+.brand {
+  font-size: 13px;
+  color: #a8d8c1;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 25px;
+  margin-top: 14px;
+}
+
+.subtitle {
+  color: #bfd1c8;
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #28483e;
+  color: #bce9d0;
+  font-size: 12px;
+}
+
+main {
+  padding: 20px 16px 35px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 20px 0 12px;
+}
+
+.date {
+  color: #788981;
+  font-size: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  padding: 17px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px #193d2b0b;
+}
+
+.card-icon {
+  font-size: 22px;
+}
+
+.card h2 {
+  font-size: 27px;
+  margin: 10px 0 4px;
+}
+
+.card p {
+  color: #788981;
+  font-size: 12px;
+}
+
+.panel {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  margin-top: 12px;
+  box-shadow: 0 3px 12px #193d2b0b;
+}
+
+.safety {
+  background: #f0f5f1;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.menu a {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-decoration: none;
+  color: #25453a;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #e9efeb;
+}
+
+.menu a span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+button {
+  border: none;
+  background: #174b3c;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: .8;
+}
+
+.activity {
+  padding: 12px 0;
+  border-bottom: 1px solid #edf1ee;
+  font-size: 13px;
+}
+
+.activity:last-child {
+  border: none;
+}
+
+.activity small {
+  color: #89958f;
+  display: block;
+  margin-top: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #89958f;
+  font-size: 11px;
+}
+
+@media (min-width: 650px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">FAH FB SAFE SYSTEM</div>
+  <h1>Control Center</h1>
+  <div class="subtitle">
+    Personal Facebook Management Platform
+  </div>
+  <div class="status">
+    ● ระบบบันทึกข้อมูลพร้อมใช้งาน
+  </div>
+</header>
+
+<main>
+
+  <div class="date" id="today"></div>
+
+  <div class="section-title">Dashboard Overview</div>
+
+  <div class="stats">
+
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h2 id="postCount">0</h2>
+      <p>กิจกรรมที่บันทึก</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h2>0</h2>
+      <p>กลุ่มในฐานข้อมูล</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h2>0</h2>
+      <p>งานที่วางแผน</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h2>—</h2>
+      <p>สถานะ Facebook</p>
+    </div>
+
+  </div>
+
+  <div class="section-title">System Safety</div>
+
+  <div class="panel">
+    <div class="safety">
+      🛡️ <b>สถานะการเชื่อมต่อ</b><br>
+      ยังไม่ได้เชื่อมต่อบัญชี Facebook<br>
+      <br>
+      ระบบนี้ใช้บันทึกกิจกรรมด้วยตนเอง
+      ไม่ได้ตรวจสอบข้อจำกัดจาก Facebook โดยตรง
+      <br><br>
+      <b>คำแนะนำ:</b>
+      ตรวจสอบ Account Status ในแอป Facebook
+      เป็นระยะ
+    </div>
+  </div>
+
+  <div class="section-title">Management Center</div>
+
+  <div class="menu">
+    <a href="#planner">
+      <span>📅</span>Post Planner
+    </a>
+    <a href="#groups">
+      <span>👥</span>Group Manager
+    </a>
+    <a href="#content">
+      <span>✍️</span>Content Manager
+    </a>
+    <a href="#safety">
+      <span>🛡️</span>Safety Center
+    </a>
+    <a href="#activity">
+      <span>📋</span>Activity Log
+    </a>
+    <a href="#analytics">
+      <span>📊</span>Analytics
+    </a>
+    <a href="#settings">
+      <span>⚙️</span>Settings
+    </a>
+  </div>
+
+  <div class="section-title" id="activity">
+    Recent Activity
+  </div>
+
+  <div class="panel">
+    <button onclick="addActivity()">
+      + บันทึกกิจกรรม
+    </button>
+
+    <div id="activityList" style="margin-top:15px">
+      <div class="activity">
+        🚀 เริ่มต้นใช้งาน FAH FB SAFE SYSTEM
+        <small>System initialized</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" id="planner">
+    Post Planner
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      พื้นที่สำหรับพัฒนาระบบจัดตารางโพสต์
+      (ขั้นตอนถัดไป)
+    </p>
+  </div>
+
+  <div class="section-title" id="groups">
+    Group Manager
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      พื้นที่สำหรับจัดเก็บข้อมูลกลุ่ม Facebook
+    </p>
+  </div>
+
+  <div class="section-title" id="content">
+    Content Manager
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      พื้นที่สำหรับจัดเก็บข้อความโปรโมต
+    </p>
+  </div>
+
+  <div class="section-title" id="safety">
+    Safety Center
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      พื้นที่สำหรับบันทึกเหตุการณ์และข้อจำกัด
+    </p>
+  </div>
+
+  <div class="section-title" id="analytics">
+    Analytics
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      พื้นที่สำหรับวิเคราะห์ผลการทำงาน
+    </p>
+  </div>
+
+  <div class="section-title" id="settings">
+    Settings
+  </div>
+  <div class="panel">
+    <p style="font-size:13px;color:#788981">
+      FAH FB SAFE SYSTEM v1.0
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  FAH FB SAFE SYSTEM © 2026<br>
+  Personal Management Dashboard
+</footer>
+
+<script>
+const today = new Date();
+
+document.getElementById("today").textContent =
+  today.toLocaleDateString("th-TH", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+
+let activities = JSON.parse(
+  localStorage.getItem("fahActivities") || "[]"
+);
+
+function renderActivities() {
+  const list = document.getElementById("activityList");
+
+  document.getElementById("postCount").textContent =
+    activities.length;
+
+  if (activities.length === 0) {
+    list.innerHTML = "ยังไม่มีประวัติกิจกรรม";
+    return;
+  }
+
+  list.innerHTML = activities.map(item => `
+    <div class="activity">
+      📌 ${escapeHTML(item.name)}
+      <small>${escapeHTML(item.time)}</small>
+    </div>
+  `).join("");
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function addActivity() {
+  const name = prompt("กรอกกิจกรรมที่ต้องการบันทึก");
+
+  if (!name || !name.trim()) return;
+
+  activities.unshift({
+    name: name.trim(),
+    time: new Date().toLocaleString("th-TH")
+  });
+
+  localStorage.setItem(
+    "fahActivities",
+    JSON.stringify(activities)
+  );
+
+  renderActivities();
+}
+
+renderActivities();
+</script>
+
+</body>
+</html>
